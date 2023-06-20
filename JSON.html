@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    
+
+    // JSON stands for javascript object notation 
+
+    // java script object
+    
+    const java_obj = {
+        name: 'shirt',
+        id:'10',
+        'dilevery-time':'1 day', // cant use .notation to access it
+        rating:{
+            stars: 4.5,
+            count: 87
+        },
+        fun: function prt(){
+            console.log('function inside an object');
+        }
+    };
+
+    
+    // JSON Object -> observe everything(key)has to be put in double quotes(single quotes not supported) and no function cant be used 
+
+    const json_obj = {
+        "name": "shirt",
+        "dilevery-time": "1 day", // cant use .notation to access it
+        "rating":{
+            "stars": 4.5,
+            "count": 87
+        }
+    };
+    // used since other programming languages can understand it
+    console.log(JSON.stringify(java_obj)) // in terminal observe the java_obj is turned to  "name" and function is removed
+
+    // lets convert our javascipt object to JSON
+    // JASON.PARSE
+    const json_str = JSON.stringify(java_obj);
+    console.log(JSON.parse(json_str));
+
+    // JSON LOCAL STORAGE
+
+    // 1) storing item in local storage
+    localStorage.setItem('message','hello'); // key,value  (can only store string values) 
+   //  2) getting a value out of local storage
+   console.log(localStorage.getItem('message'));
+
+
+
+</script>
+</html>

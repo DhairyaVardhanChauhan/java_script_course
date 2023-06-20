@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const object = {
+        name: 'socks',
+        price:100
+    };
+
+    console.log(object); // prints the full object
+    console.log(object.name);
+    console.log(object.price);
+    object.name = "ball"; // changes the original data 
+    console.log(object.name);
+    console.log(object.color); // gives undefined
+
+    const data = {
+        profit: 10,
+        loss: 10,
+        draw: 10
+    };
+
+    const product2 = {
+        name: 'shirt',
+        id:'10',
+        'dilevery-time':'1 day', // cant use .notation to access it
+        rating:{
+            stars: 4.5,
+            count: 87
+        },
+        fun: function prt(){
+            console.log('function inside an object');
+        }
+    };
+ 
+    console.log(data);
+    console.log(product2['name' ]); // way 2 to select items.
+    console.log(product2['dilevery-time'])
+    console.log(product2.rating.stars);
+    console.log(product2['rating']['stars']);
+    product2.fun();
+</script>
+</html>

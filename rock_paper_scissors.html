@@ -16,6 +16,8 @@
     <button onclick="
         pickmove('Scissors');
     ">Scissors</button>
+
+    <button onclick="scores.win = 0;scores.lose=0;scores.draw = 0">Reset score</button>
 </body>
 <script>
         let ans = '';
@@ -33,17 +35,28 @@
             }
 
             if(ans === usermove){
-                alert(`Draw.\nUser: ${usermove} , Computer:${ans}`)
+                scores.draw++;
+                alert(`Draw.\nUser: ${usermove} , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
             }
             else if((ans === 'Paper'&& usermove === 'Rock') || (ans === 'Rock'&& usermove == 'Scissors') ||(ans === 'Scissors' && usermove === 'Paper')){
-                alert(`Computer won.\nUser: ${usermove} , Computer:${ans}`)
+                scores.lose++;
+                alert(`Computer won.\nUser: ${usermove} , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
             }
 
             else{
-                alert(`User won.\nUser: ${usermove}  , Computer:${ans}`)
+                scores.win++;
+                alert(`User won.\nUser: ${usermove}  , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
                 
             }
         }
+
+        const scores = {
+            win: 0,
+            lose: 0,
+            draw: 0
+        };
+        ;
+        localStorage.setItem("score",JSON.stringify(scores)) 
 
 </script>
 </html>
