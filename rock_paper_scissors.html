@@ -1,62 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>Rock Paper Scissors</p>
-    <button onclick="
-        pickmove('Rock');
-    ">Rock</button>
-    <button onclick="
-        pickmove('Paper');
-    ">Paper</button>
-    <button onclick="
-        pickmove('Scissors');
-    ">Scissors</button>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p>Rock Paper Scissors</p>
+        <button onclick="
+            pickmove('Rock');
+        ">Rock</button>
+        <button onclick="
+            pickmove('Paper');
+        ">Paper</button>
+        <button onclick="
+            pickmove('Scissors');
+        ">Scissors</button>
 
-    <button onclick="scores.win = 0;scores.lose=0;scores.draw = 0">Reset score</button>
-</body>
-<script>
-        let ans = '';
-        let usrans = 0;
-        function pickmove(usermove){
-            let rnd = Math.random();
-            if(rnd<=1/3){
-                ans = 'Rock';
-            }
-            else if(rnd>1/3 && rnd<=2/3){
-                ans = 'Paper';
-            }
-            else{
-                ans = 'Scissors';
+        <button onclick="scores.win = 0;scores.lose=0;scores.draw = 0; localStorage.removeItem('score')">Reset score</button> <!--JSON HAS A WIERD BEHAVIOUR IT USES PREV DATA EVEN IF IT IS DELETED AND IF YOU DONT WANT THAT JUST RESTART BROWSER-->
+    </body>
+    <script>
+            let scores = JSON.parse(localStorage.getItem('score'));  // since this part of code load immediatly when the code runs we keep it out of function
+            if(scores === null){
+                console.log("hello");   
+                scores = {
+                    win: 0,
+                    lose: 0,
+                    draw: 0
+                };
+            };
+            let ans = '';
+            let usrans = 0;
+            function pickmove(usermove){
+                let rnd = Math.random();
+                if(rnd<=1/3){
+                    ans = 'Rock';
+                }
+                else if(rnd>1/3 && rnd<=2/3){
+                    ans = 'Paper';
+                }
+                else{
+                    ans = 'Scissors';
+                }
+
+                if(ans === usermove){
+                    scores.draw++;
+                    alert(`Draw.\nUser: ${usermove} , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
+                }
+                else if((ans === 'Paper'&& usermove === 'Rock') || (ans === 'Rock'&& usermove == 'Scissors') ||(ans === 'Scissors' && usermove === 'Paper')){
+                    scores.lose++;
+                    alert(`Computer won.\nUser: ${usermove} , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
+                }
+
+                else{
+                    scores.win++;
+                    alert(`User won.\nUser: ${usermove}  , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
+                    
+                }
+                localStorage.setItem("score",JSON.stringify(scores)) // when ever the score is update save it to local storage
             }
 
-            if(ans === usermove){
-                scores.draw++;
-                alert(`Draw.\nUser: ${usermove} , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
-            }
-            else if((ans === 'Paper'&& usermove === 'Rock') || (ans === 'Rock'&& usermove == 'Scissors') ||(ans === 'Scissors' && usermove === 'Paper')){
-                scores.lose++;
-                alert(`Computer won.\nUser: ${usermove} , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
-            }
-
-            else{
-                scores.win++;
-                alert(`User won.\nUser: ${usermove}  , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
-                
-            }
-        }
-
-        const scores = {
-            win: 0,
-            lose: 0,
-            draw: 0
-        };
-        ;
-        localStorage.setItem("score",JSON.stringify(scores)) 
-
-</script>
-</html>
+    </script>
+    </html>
