@@ -17,7 +17,7 @@
             pickmove('Scissors');
         ">Scissors</button>
 
-        <button onclick="scores.win = 0;scores.lose=0;scores.draw = 0; localStorage.removeItem('score')">Reset score</button> <!--JSON HAS A WIERD BEHAVIOUR IT USES PREV DATA EVEN IF IT IS DELETED AND IF YOU DONT WANT THAT JUST RESTART BROWSER-->
+        <button onclick="scores.win = 0;scores.lose=0;scores.draw = 0; localStorage.removeItem('score')">Reset score</button> <!--JSON HAS A WIERD BEHAVIOUR IT USES PREV DATA EVEN IF IT IS DELETED AND IF YOU DONT WANT THAT JUST RESTART BROWSER -->
     </body>
     <script>
             let scores = JSON.parse(localStorage.getItem('score'));  // since this part of code load immediatly when the code runs we keep it out of function
@@ -51,7 +51,6 @@
                     scores.lose++;
                     alert(`Computer won.\nUser: ${usermove} , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
                 }
-
                 else{
                     scores.win++;
                     alert(`User won.\nUser: ${usermove}  , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>hello</button>
+    <button class="js-button">second button</button>
+    <script>
+        console.log(document.querySelector('button'));
+        console.log(document.querySelector('button').innerHTML); // prints the content of the html inside the button
+        document.querySelector('button').innerHTML = 'bye';
+        console.log(document.querySelector('button').innerHTML);
+        console.log(document.querySelector('.js-button'));
+    </script>
+</body>
+</html>

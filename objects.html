@@ -48,5 +48,33 @@
     product2.fun();
     console.log('hello'.length);// property
     console.log('hello'.toUpperCase()); // method
+
+    // destructuring 
+    const object3 ={
+        message: 'good job!',
+        price: 799,
+        age: 19
+    }
+    // 2 ways
+
+    // const msg = object.message; // way1
+    const {message} = object3; //takes out the message property of the object variable and saves it in a variable message
+    console.log(message);
+    const {price,age} = object3;
+    console.log(price+" "+ age);
+    
+    const object5 = {
+
+        // method2: function fun(){
+        //     console.log("long version");
+        // }
+        method(){
+            console.log("method shortcut");
+        }
+    }
+
+    object5.method();
+
+
 </script>
 </html>

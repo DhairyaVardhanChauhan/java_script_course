@@ -51,14 +51,18 @@
             <button class="bt1" onclick="ans+=9; console.log(9)">9</button>
             <button class="bt1" onclick="ans+=0; console.log(0)">0</button>
             <button class="bt1" onclick="console.log('+')">+</button>
-            <button class="bt1" onclick="console.log(`Your answer is ${ans}`)">=</button>
+            <button class="bt1" onclick="console.log(`Your answer is ${ans}`);localStorage.setItem('val', ans);">=</button>
         </div>
     </div>
     </div>
 </body>
 <script>
     console.log("Calculator is on how many i assist you?"); 
-    let ans = 0;
-    let on = true;
+    let ans = JSON.parse(localStorage.getItem('val'));
+    if(!ans){
+        ans = '';
+    }
+
+    localStorage.setItem('val',JSON.stringify(ans));
 </script>
 </html>

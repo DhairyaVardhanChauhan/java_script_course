@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<button onclick="ans.age += 1; localStorage.setItem('temp', JSON.stringify(ans));">+</button>
+</body>
+<script>
+  let ans = JSON.parse(localStorage.getItem('temp'));
+  if (!ans){
+    ans = {
+      name: "tim",
+      age: 12
+    }
+  }
+  localStorage.setItem('temp', JSON.stringify(ans));
+  console.log(ans);
+</script>
+</html>

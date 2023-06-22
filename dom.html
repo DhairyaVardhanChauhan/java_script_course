@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>hello</button>
+    <script> 
+    
+        // document object notation-> it's speciality is that it is linked to the webpage.  
+    
+        console.log(document.body.innerHTML);
+        document.body.innerHTML = "Just changed the inner html and removed button"; // document.body.innerHtml = is used to change the inner contents
+        console.log(document.body.innerHTML);
+        document.title = "Good job!"; // changes title;
+        console.log(document.body);
+        console.log(typeof document.body); 
+        document.body.innerHTML = '<button>change</button>'
+        </script>
+
+</body>
+
+</html>
