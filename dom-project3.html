@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Amazon shipping Calculator</p>
+    <p>Order under $40 = +10 shipping charge</p>
+    <p>Order over $40 = Free shipping</p>
+    <input class="js-place" type="text" placeholder="Cost of order" onkeydown="checker()">
+    <p class="js-calc">###</p>
+    <button  onclick="calc()">calculate</button>
+    <script>    
+
+        function calc(){
+            let content =  document.querySelector('.js-place');
+            // console.log(content.value);
+            let cost = Number(content.value);
+            if(cost < 40){
+                cost+=10;
+            }
+            document.querySelector('.js-calc').innerHTML = "$"+cost ;
+        }
+
+        function checker(){
+            console.log(event.key);
+            if(event.key === "Enter"){
+                calc();
+            }
+        }
+
+        // window function(contains -> document,alerts and console)
+
+        console.log(window.document.querySelector('.js-calc').innerHTML);
+
+    </script>
+</body>
+</html>

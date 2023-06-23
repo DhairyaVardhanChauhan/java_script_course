@@ -7,11 +7,11 @@
 </head>
 <body>
     <p>YouTube Subscribe Button</p>
-    <button class="js-button" onclick="Subscribe()">Subscribe</button> 
+    <button class="js-subscribe-button" onclick="Subscribe()">Subscribe</button> 
     <script> // if you put space around the text ">Subscribe<" it wont work use innerText to ignore spaces
 
         function Subscribe(){
-            const buttonElement =  document.querySelector('.js-button');
+            const buttonElement =  document.querySelector('.js-subscribe-button');
             if(buttonElement.innerText==='Subscribe'){ 
                 buttonElement.innerHTML = 'Subscribed';
             }
