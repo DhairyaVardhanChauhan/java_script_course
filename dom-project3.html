@@ -4,14 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .css-inp{
+            padding: 10px 10px 10px 10px;
+
+        }
+
+        .calc-btn{
+            vertical-align: middle;
+            padding: 10px 10px 10px 10px;
+            background-color: rgb(9, 142, 9);
+            color: white;
+            font-size: 16px;
+            border-style: none;
+        }
+
+    </style>
 </head>
 <body>
     <p>Amazon shipping Calculator</p>
     <p>Order under $40 = +10 shipping charge</p>
     <p>Order over $40 = Free shipping</p>
-    <input class="js-place" type="text" placeholder="Cost of order" onkeydown="checker()">
-    <p class="js-calc">###</p>
-    <button  onclick="calc()">calculate</button>
+    <input class="js-place css-inp" type="text" placeholder="Cost of order" onkeydown="checker()">
+    <button class="calc-btn"  onclick="calc()">Calculate</button>
+    <p class="js-calc"></p>
     <script>    
 
         function calc(){

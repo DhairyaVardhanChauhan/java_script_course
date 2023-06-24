@@ -6,8 +6,59 @@
     <title>Document</title>
 </head>
 <body>
-    <button>heads</button>
-    <button>tails</button>
-    <p class="class"></p>
+    <button onclick="check('heads')">heads</button>
+    <button onclick="check('tails')">tails</button>
+    <p class="js-text"></p>
+    <input class="js-name-place" type="text" placeholder="Enter your name.." onkeydown="keycheck()">
+    <button onclick="data()">Submit</button>
+    <p class="js-name"></p>
+
+    <input type="text" class="js-input-writeMe" onkeyup="writeMe()">
+    <p class="js-write"></p>
+
+    <!--Buttons and math -->
+    <p class="js-math-para"></p>
+    <button class="js-pressed" onclick="write_key(1)">1</button>
+    <button class="js-pressed" onclick="write_key(2)">2</button>
+    <button class="js-pressed" onclick="write_key(3)">3</button>
+    <button class="js-pressed" onclick="write_key('+')">+</button>
+    <button onclick="localStorage.removeItem('txt');console.log('Cleared'); document.querySelector('.js-math-para').innerHTML = '';">Reset</button>
+
+    <script>
+        let math_data = JSON.parse(localStorage.getItem('txt'))||'';
+        document.querySelector('.js-math-para').innerHTML = math_data;
+
+        function check(value){
+            if(value == "heads"){
+                document.querySelector('.js-text').innerHTML = "You choose heads";
+            }
+            else{
+                document.querySelector('.js-text').innerHTML = "You choose Tails";
+            }
+        }
+
+        function data(){
+            let name = document.querySelector('.js-name-place').value;
+            console.log(name);
+            document.querySelector('.js-name').innerHTML = `Your name is ${name}`;
+        }
+        function keycheck(){
+            if(event.key == "Enter"){
+                data();
+            }
+        }
+
+        function writeMe(){
+            let val = document.querySelector('.js-input-writeMe').value;
+            document.querySelector('.js-write').innerHTML = val;
+        }
+
+        function write_key(keyval){
+
+            document.querySelector('.js-math-para').innerHTML += keyval;
+            let textval = document.querySelector('.js-math-para').innerHTML;
+            localStorage.setItem('txt',JSON.stringify(textval));
+        }
+    </script>
 </body>
 </html>

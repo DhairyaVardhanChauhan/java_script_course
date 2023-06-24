@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>Rock Paper Scissors</p>
-    <button onclick="
-        pickmove('Rock');
-    ">Rock</button>
-    <button onclick="
-        pickmove('Paper');
-    ">Paper</button>
-    <button onclick="
-        pickmove('Scissors');
-    ">Scissors</button>
-    <button onclick="scores.win = 0;scores.lose=0;scores.draw = 0; localStorage.removeItem('score'); updateScore();">Reset score</button> <!--JSON HAS A WIERD BEHAVIOUR IT USES PREV DATA EVEN IF IT IS DELETED AND IF YOU DONT WANT THAT JUST RESTART BROWSER -->
-    <p class="js-result"></p>
-    <p class="js-moves"></p>
-    <p class="js-score"></p>
-</body>
-
-<script>
-        let scores = JSON.parse(localStorage.getItem('score'));  // since this part of code load immediatly when the code runs we keep it out of function
+let scores = JSON.parse(localStorage.getItem('score'));  // since this part of code load immediatly when the code runs we keep it out of function
         if(scores === null){
             console.log("hello");   
             scores = {
@@ -36,7 +11,7 @@
         updateScore();
 
         function updateScore(){
-            document.querySelector('.js-score').innerHTML = `wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`;
+            document.querySelector('.js-score').innerHTML = `Wins: ${scores.win}, Losses: ${scores.lose}, Ties: ${scores.draw}`;
 
         }
         function pickmove(usermove){
@@ -54,24 +29,24 @@
              
             if(ans === usermove){
                 scores.draw++;
-                document.querySelector('.js-result').innerHTML = "Draw";
+                document.querySelector('.js-result').innerHTML = "Tie.";
                 // alert(`Draw.\nUser: ${usermove} , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
             }
             else if((ans === 'Paper'&& usermove === 'Rock') || (ans === 'Rock'&& usermove == 'Scissors') ||(ans === 'Scissors' && usermove === 'Paper')){
                 scores.lose++;
-                document.querySelector('.js-result').innerHTML = "You lose"
+                document.querySelector('.js-result').innerHTML = "You lose."
                 // alert(`Computer won.\nUser: ${usermove} , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
             }
             else{
-                document.querySelector('.js-result').innerHTML = "You Win"
+                document.querySelector('.js-result').innerHTML = "You win."
                 scores.win++;
                 // alert(`User won.\nUser: ${usermove}  , Computer:${ans}\n wins: ${scores.win} loss: ${scores.lose} draw: ${scores.draw}`)
                 
             }
             localStorage.setItem("score",JSON.stringify(scores)) // when ever the score is update save it to local storage
-            document.querySelector('.js-moves').innerHTML = `You ${usermove} , Computer:${ans}`;
+            document.querySelector('.js-moves').innerHTML = `You
+        <img src="rock-paper/${usermove}-emoji.png" alt="">
+        <img src="rock-paper/${ans}-emoji.png" alt="">
+        Computer`;
             updateScore();
         }
-
-</script>
-</html>
