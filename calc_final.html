@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: black;
+        }
+        .bt1 {
+            font-size: 26px;
+            color: white;
+            height: 60px;
+            width: 60px;
+            margin-right: 5px;
+            margin-left: 5px;
+            border-radius: 30px;
+            border-style: none;
+            background-color: rgb(51, 51, 51);
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+        .symbol{
+            background-color: rgb(254, 160, 10);
+        }
+
+        .clear{
+            font-size: 16px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div style= "width: 320px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; row-gap: 10px; column-gap: 10px;">
+            <button class="bt1" onclick="ans+=1;console.log(1)">1</button>
+            <button class="bt1" onclick="ans+=2; console.log(2)">2</button>
+            <button class="bt1" onclick="ans+=3; console.log(3)">3</button>
+            <button class="bt1 symbol" onclick="console.log('+')">+</button>
+            <button class="bt1" onclick="ans+=4; console.log(4)">4</button>
+            <button class="bt1" onclick="ans+=5; console.log(5)">5</button>
+            <button class="bt1" onclick="ans+=6; console.log(6)">6</button>
+            <button class="bt1 symbol" onclick="console.log('+')">-</button>
+            <button class="bt1" onclick="ans+=7; console.log(7)">7</button>
+            <button class="bt1" onclick="ans+=8; console.log(8)">8</button>
+            <button class="bt1" onclick="ans+=9; console.log(9)">9</button>
+            <button class="bt1 symbol" onclick="console.log('+')">*</button>
+            <button class="bt1" onclick="ans+=0; console.log(0)">0</button>
+            <button class="bt1" onclick="console.log('+')">.</button>
+            <button class="bt1" onclick="console.log(`Your answer is ${ans}`);localStorage.setItem('val', ans);">=</button>
+            <button class="bt1 symbol" onclick="console.log('+')">/</button>
+            <button class="bt1 clear" onclick="console.log('+')">Clear</button>
+
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+    console.log("Calculator is on how many i assist you?"); 
+    let ans = JSON.parse(localStorage.getItem('val'));
+    if(!ans){
+        ans = '';
+    }
+
+    localStorage.setItem('val',JSON.stringify(ans));
+</script>
+</html>

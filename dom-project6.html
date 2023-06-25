@@ -39,6 +39,7 @@
   <script>
       function change(num){
         let buttonclick = document.querySelector(`.js-toggle${num}`);
+        untoggle_previous();
         if(buttonclick.classList.contains('js-checked-btn')){
           buttonclick.classList.remove('js-checked-btn');
         }
@@ -54,6 +55,15 @@
         }
         else{
           body.classList.add('d-mode');
+        }
+      }
+
+      // NOW WHAT IF WE WANT TO UNTOGGLE PREVIOUS BUTTON IF WE TOGGLED ANOTHER
+
+      function untoggle_previous(){
+        let prev_btn = document.querySelector('.js-checked-btn'); // since when we toggle a button only a single button will get the class js-checked and we fetch that button
+        if(prev_btn){
+            prev_btn.classList.remove('js-checked-btn');
         }
       }
   </script>
