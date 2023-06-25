@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            font-size: 20px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        input{
+            height: 30px;
+            width: 180px;
+        }
+        button{
+            height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <p>Todo List Practice 1</p>
+    <input class = "usr_inp" type="text" placeholder="Todo name" onkeydown="enter_check()">
+    <button onclick="addme();show_list()">add</button>
+    <button onclick="removeme();show_list()">remove</button>
+    <p class="list-displayer"></p>
+    <script>
+        let todo = [];
+        function addme(){
+            let val = document.querySelector(".usr_inp").value;
+            todo.push(val);
+            console.log(todo);
+        }
+        function removeme(){
+            let val = document.querySelector(".usr_inp").value;
+            todo.pop();
+            console.log(todo);
+        }
+        
+        function show_list(){
+            document.querySelector('.list-displayer').innerHTML = todo;
+        }
+
+        function enter_check(){
+            if(event.key == 'Enter'){
+                addme();
+                show_list();
+            }
+        }
+    </script>
+</body>
+</html>
