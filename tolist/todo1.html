@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            background-color: rgb(40, 40, 40);
+        }
         p{
+            color: white;
             font-size: 20px;
             font-weight: bold;
             font-family: Arial, Helvetica, sans-serif;
@@ -14,33 +18,80 @@
         input{
             height: 30px;
             width: 180px;
+            vertical-align: middle;
+        }
+        .add-date{
+            height: 31px;
         }
         button{
             height: 35px;
+            width: 80px;
+            background-color: rgb(14, 184, 14);
+            color: white;
+            border-style: none;
         }
+        .num-text{
+            font-size: 20px;
+            color: yellow;
+        }
+
+        .del-btn{
+            background-color: rgb(239, 15, 15);
+
+        }
+
+        .todo-grid{
+            display: grid;
+            grid-template-columns: 200px 150px 100px;
+        }
+
+        .btn-div{
+            margin-top: 15px;
+        }
+
     </style>
 </head>
 <body>
     <p>Todo List Practice 1</p>
     <input class = "usr_inp" type="text" placeholder="Todo name" onkeydown="enter_check()">
-    <button onclick="addme();show_list()">add</button>
-    <button onclick="removeme();show_list()">remove</button>
-    <p class="list-displayer"></p>
+    <input class="add-date js-duedate" type="date">
+    <button onclick="addme();">Add</button>
+    <div class="todo-text todo-grid"></div>
     <script>
-        let todo = [];
+        let todo = [{
+            task: 'make dinner',
+            dueDate: '2022-12-22'
+        }];
         function addme(){
-            let val = document.querySelector(".usr_inp").value;
-            todo.push(val);
-            console.log(todo);
+            let inputval = document.querySelector(".usr_inp");
+            let dateval = document.querySelector(".js-duedate");
+            let val = inputval.value;
+            let datetodo = dateval.value;
+
+            todo.push({
+                task:val,
+                dueDate: datetodo
+            });
+            inputval.value = '';
+            show_list();
         }
-        function removeme(){
-            let val = document.querySelector(".usr_inp").value;
-            todo.pop();
-            console.log(todo);
-        }
-        
+                
         function show_list(){
-            document.querySelector('.list-displayer').innerHTML = todo;
+            let todolistHtml = '';
+            for(let i = 0;i<todo.length;i++){
+                const todotask = todo[i].task;
+                const todoDate = todo[i].dueDate;
+                let html = `
+                     
+
+                    <div><span class = 'num-text'> <p>${i+1}: </span>${todotask} </p></div>
+                    <div><p>${todoDate}</p></div>
+                    <div class="btn-div"><button class = "del-btn" onclick = "todo.splice(${i},1); show_list();">Delete</button></div> `
+                    
+                    
+                todolistHtml += html;
+            }
+            document.querySelector('.todo-text').innerHTML = todolistHtml;
         }
 
         function enter_check(){
@@ -49,6 +100,7 @@
                 show_list();
             }
         }
+        
     </script>
 </body>
 </html>

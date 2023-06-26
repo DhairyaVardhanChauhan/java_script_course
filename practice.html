@@ -4,58 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    .check-btn{
-      height: 50px;
-      width: 100px;
-      font-size: 20px;
-      border-style: none;
-      border-radius: 8px;
-      background-color: rgb(226, 223, 223);
-      margin-right: 10px;
-      cursor: pointer;
-      transition: background-color 0.35s;
-    }
-
-    .js-checked-btn{
-      transition: background-color 0.35s;
-      background-color: rgb(40,40,40);
-      color: white;
-      cursor: pointer;
-    }    
-
-    .d-mode{
-      background-color: black;
-      transition: background-color 0.35s;
-    }
-
-  </style>
 </head>
-<body class="js-mode">
-  <button class="check-btn js-toggle1" onclick="change(1)">Gaming</button>
-  <button class="check-btn js-toggle2" onclick="change(2)">Music</button>
-  <button class="check-btn js-toggle3" onclick="change(3)">Tech</button>
-  <button class="check-btn js-toggle4" onclick="change(4);change_background()">Dark</button>
+<body>
   <script>
-      function change(num){
-        let buttonclick = document.querySelector(`.js-toggle${num}`);
-        if(buttonclick.classList.contains('js-checked-btn')){
-          buttonclick.classList.remove('js-checked-btn');
-        }
-        else{
-          buttonclick.classList.add('js-checked-btn');
-        }
-      }
-
-      function change_background() {
-        let body = document.querySelector('.js-mode');
-        if(body.classList.contains('d-mode')){
-          body.classList.remove('d-mode');
-        }
-        else{
-          body.classList.add('d-mode');
-        }
-      }
+    let A = [1,2,3,4,5];
+    let temp = A[0];
+    A[0] = A[4];
+    A[4] = temp;
+    console.log(A);
+    for(let i = 5;i>=0;i--){
+      console.log(i);
+    }
   </script>
 </body>
 </html>
