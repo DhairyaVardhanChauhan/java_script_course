@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .style-me{
+            font-size:40px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <p class="call-me style-me"></p>
+    <p class="call-again style-me"></p>
+    <script>
+
+        // calls the function when the timer is over
+        function timer(){
+            console.log("hello in 5 seconds");
+            document.querySelector('.call-me').innerHTML = 'hello in 5 seconds'
+        }
+        setTimeout(timer,5000);
+
+        // calls the function again and again
+        function call_again(){
+            console.log("hi");
+            document.querySelector('.call-again').innerHTML+='.';
+        }
+        setInterval(call_again,1000);
+        
+    </script>
+</body>
+</html>

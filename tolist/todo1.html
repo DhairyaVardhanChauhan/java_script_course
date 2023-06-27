@@ -17,10 +17,11 @@
         }
         input{
             height: 30px;
-            width: 180px;
+            width: 380px;
             vertical-align: middle;
         }
         .add-date{
+            width: 180px;
             height: 31px;
         }
         button{
@@ -29,6 +30,7 @@
             background-color: rgb(14, 184, 14);
             color: white;
             border-style: none;
+            cursor: pointer;
         }
         .num-text{
             font-size: 20px;
@@ -40,23 +42,27 @@
 
         }
 
-        .todo-grid{
+        .todo-grid,.area-grid{
             display: grid;
-            grid-template-columns: 200px 150px 100px;
+            grid-template-columns: 400px 190px 100px;
+            column-gap: 2px;
         }
 
         .btn-div{
             margin-top: 15px;
         }
 
+
     </style>
 </head>
 <body>
     <p>Todo List Practice 1</p>
-    <input class = "usr_inp" type="text" placeholder="Todo name" onkeydown="enter_check()">
-    <input class="add-date js-duedate" type="date">
-    <button onclick="addme();">Add</button>
-    <div class="todo-text todo-grid"></div>
+    <div class="area-grid">
+        <input class = "usr_inp" type="text" placeholder="Todo name" onkeydown="enter_check()">
+        <input class="add-date js-duedate" type="date">
+        <button onclick="addme();">Add</button>
+    </div>
+        <div class="todo-text todo-grid"></div>
     <script>
         let todo = [{
             task: 'make dinner',

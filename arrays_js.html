@@ -16,6 +16,22 @@
     console.log(arr);
     arr.splice(0,1);// removes [k values starting from index n](n,k);
     console.log(arr);
+
+    // copying an array
+
+    // by default array's contain only the references
+    const arr1 = [1,2,3,4];
+    const arr2 = arr1; // both point at the same array hence if i add an element to one array other also changes
+    arr3 = arr1.slice();
+    console.log(arr3)
+    arr1.push(100);
+    console.log(arr1);
+    console.log(arr2);
+    console.log(arr3);
+
+    // to prevent this behaviour we use slice function
+
+
     </script>
 </body>
 </html>
