@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-  <script>
-    let A = [1,2,3,4,5];
-    let temp = A[0];
-    A[0] = A[4];
-    A[4] = temp;
-    console.log(A);
-    for(let i = 5;i>=0;i--){
-      console.log(i);
-    }
-  </script>
+    <button class="click-js" onclick="document.querySelector('.no-js').innerHTML=`${++count}`;">click</button>
+    <button onclick="clickers();">auto clicker</button>
+    <p class="no-js"></p>
+    <script>
+            let count = 0;
+            let id;
+            let checked = false;
+            function autoclick(){
+                document.querySelector('.no-js').innerHTML=`${++count}`;
+            }
+            function clickers(){
+                checked = !checked
+                if(checked){
+                    id = setInterval(autoclick,100);
+                }
+                else{
+                    clearInterval(id);
+                }
+            }
+            
+    </script>
 </body>
 </html>

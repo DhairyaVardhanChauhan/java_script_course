@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="rock-paper-auto.css">
+</head>
+<body>
+    <p class="header">Rock Paper Scissors</p>
+    <button onclick="
+        pickmove('Rock');
+    ">
+        <img  src="rock-paper/Rock-emoji.png" alt="">
+    </button>
+    <button onclick="
+        pickmove('Paper');
+    "><img src="rock-paper/paper-emoji.png" alt=""></button>
+    <button onclick="
+        pickmove('Scissors');
+    "><img src="rock-paper/scissors-emoji.png" alt=""></button>
+    <p class="js-result css-result"></p>
+    <p class="js-moves">
+    </p>
+    <p class="js-score score"></p>
+    <button class="reset-score-btn" onclick="scores.win = 0;scores.lose=0;scores.draw = 0; localStorage.removeItem('score'); updateScore();">Reset Score</button> <!--JSON HAS A WIERD BEHAVIOUR IT USES PREV DATA EVEN IF IT IS DELETED AND IF YOU DONT WANT THAT JUST RESTART BROWSER -->
+    <button class="js-autoplay css-autoplay" onclick="autoplay()">AutoPlay</button> 
+</body>
+<script src="rock-paper-auto.js"></script>
+</html>

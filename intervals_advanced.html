@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="title-change">App</title>
+</head>
+<body>
+    <button onclick="js_change(1)">Add</button>
+    <button onclick="js_change(0)">Remove</button>
+    <p class="js-added"></p>
+    <script>
+        
+        let count = 2;
+        let id;
+        function js_change(val){
+            if(val){
+                if(count == 0){
+                    id = setInterval(changettl,1000); // start a new interval and stop it by using id again. very important point
+                }
+                count++;
+            }
+            else if(!val && count != 0){
+                count--;
+            }
+            if(count === 0){
+                document.title = "App";
+                clearInterval(id);
+                
+            }
+        }
+
+        function changettl(){
+            if(document.title === "App"){
+                document.title = `(${count})New messages`;
+            }
+            else{
+                document.title = "App";
+            }
+        }
+        function change_val(){
+            clearInterval(id);
+            id = setInterval(changettl,1000);
+        }
+        change_val();
+    </script>
+</body>
+</html>

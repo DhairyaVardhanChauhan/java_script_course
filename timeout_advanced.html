@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="js_add()">Add to cart</button>
+    <p class="js-added"></p>
+    <script>
+        let  timeout_id;
+        function timer(){
+            document.querySelector('.js-added').innerHTML = "";
+        }
+        function js_add(){
+            document.querySelector('.js-added').innerHTML = "Added";
+            clearTimeout(timeout_id); // phalse purana timeout clear karega then will start a new one this is useful 
+            // if you want to look it work like single click eg: 4-5 bar click then it will dissapear before 2 sec since multiple timeout are working. So use this
+            // STEP1: clear timeout()
+            // STEP2: START A NEW ONE
+            timeout_id = setTimeout(timer,2000);
+        }
+    </script>
+</body>
+</html>
