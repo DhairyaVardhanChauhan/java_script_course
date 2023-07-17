@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .change-js{
+            background-color: rgb(41, 41, 243);
+            color: white;
+            border-style: none;
+        }
+    </style>
+</head>
+<body>
+    <button class="js-loopAll">hello</button>
+    <button class="js-loopAll">hello</button>
+    <button class="js-loopAll">hello</button>
+    
+    <script>
+        let val = ['wash dishes','watch youtube','make dinner'];
+        // for each lets us loop it requires a function as a parameter
+        val.forEach((info) =>{
+            console.log(info);
+        });
+
+        ['wash car','go to bakery'].forEach((element)=>{
+            console.log(element);
+        })
+
+        let ele = document.querySelectorAll('.js-loopAll').forEach((button,index)=>{ // the parameters(see console) are fixed first value is element and second is index 
+            // this is an easy way to add on click to all the buttons with same class
+            console.log(button + ' -> '+index);
+            button.addEventListener('click',()=>{
+                button.classList.add('change-js');
+            })
+        });
+    </script>
+</body>
+</html>

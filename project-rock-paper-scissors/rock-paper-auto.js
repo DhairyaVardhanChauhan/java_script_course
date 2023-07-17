@@ -1,3 +1,24 @@
+
+document.querySelector('.js-rock').addEventListener('click',()=>{pickmove('Rock')});
+document.querySelector('.js-paper').addEventListener('click',()=>{pickmove('Paper')});
+document.querySelector('.js-scissors').addEventListener('click',()=>{pickmove('Scissors')});
+
+
+// making keys work
+
+document.body.addEventListener('keydown',(event)=>{  // everytime we run the code addevent listner adds event to the arrow function automatically
+    // this is added to document since we want it to work anywhere on the page.
+    if(event.key == 'r'){
+        pickmove('Rock'); 
+    }
+    else if(event.key == 'p'){
+        pickmove('Paper');
+    }
+    else if(event.key == 's'){
+        pickmove('Scissors');
+    }
+})
+
 let scores = JSON.parse(localStorage.getItem('score'));  // since this part of code load immediatly when the code runs we keep it out of function
         if(scores === null){
             console.log("hello");   

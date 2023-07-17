@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button class="js-button">click me</button>
+<script>
+    // better than onclick as we can easily remove and add eventlistners
+    function callme(){
+        console.log('clicked');
+    }
+    let buttonele = document.querySelector('.js-button');
+    // buttonele.addEventListener('click',callme()); // WRONG WAY.................AS IT IMMEDIATELY CALLS THE FUNCTION without click if callme() and if you use (callme without brackets its ok) since it passes a refernce
+    buttonele.addEventListener('click',()=>{callme}); // passing an arrow function makes a function there eg in c++ : void solve() now i have to call solve() explicitly which happens on click.
+    buttonele.addEventListener('click',()=>{
+        console.log('clicked2');
+    })
+    buttonele.removeEventListener('click',()=>{callme()});  
+</script>
+</body>
+</html>

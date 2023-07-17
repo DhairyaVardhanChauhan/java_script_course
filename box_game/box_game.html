@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .can-css{
+            border:4px solid grey ;
+            width: 1000px;
+            background-color: rgb(40, 40, 40);
+        }
+    </style>
+</head>
+<body>
+    <canvas class="can-css"></canvas>
+    <script>
+        
+        let canvas = document.querySelector(".can-css"); 
+        const ctx = canvas.getContext("2d");// used to assign 2d drawing functions
+        let x =0;
+        let y = 0;
+        let canvasWidth = 10;
+        let canvasHeight = 10
+        ctx.fillStyle = "rgb(235, 198, 52)";
+        ctx.fillRect(0,0,canvasWidth,canvasHeight); // x,y (pos) w,h
+        document.body.addEventListener('keydown',()=>{
+            if(event.key == 'w'){
+                console.log('w');   
+                if(y>0)y-=10;
+            }
+            else if(event.key == 'a'){
+                console.log('a');
+                if(x>0)x -= 10;
+            }
+            else if(event.key == 's'){
+                prev_y = y
+                console.log('s');
+                if(y<canvas.height-10)y+=10;
+            }
+            else if(event.key == 'd'){
+                console.log('d');
+                if(x<canvas.width-10) x += 10;
+            }
+            replot_grid(x,y);
+            
+        })
+
+        function replot_grid(x,y){
+            ctx.clearRect(0,0,canvas.width,canvas.height); // clears the entire canvas
+            ctx.fillRect(x,y,canvasWidth,canvasHeight); // x,y (pos) w,h
+            ctx.fillStyle = "rgb(235, 198, 52)";
+        }
+        
+    </script>
+</body>
+</html>

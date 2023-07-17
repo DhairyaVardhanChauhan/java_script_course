@@ -60,14 +60,16 @@
     <div class="area-grid">
         <input class = "usr_inp" type="text" placeholder="Todo name" onkeydown="enter_check()">
         <input class="add-date js-duedate" type="date">
-        <button onclick="addme();">Add</button>
+        <button class="js-Add-btn">Add</button>
     </div>
         <div class="todo-text todo-grid"></div>
     <script>
-        let todo = [{
-            task: 'make dinner',
-            dueDate: '2022-12-22'
-        }];
+        let todo = [];
+
+        document.querySelector('.js-Add-btn').addEventListener('click',()=>{
+            addme();
+        });
+
         function addme(){
             let inputval = document.querySelector(".usr_inp");
             let dateval = document.querySelector(".js-duedate");
@@ -86,18 +88,36 @@
             let todolistHtml = '';
             for(let i = 0;i<todo.length;i++){
                 const todotask = todo[i].task;
+                console.log(todotask);
                 const todoDate = todo[i].dueDate;
-                let html = `
-                     
 
-                    <div><span class = 'num-text'> <p>${i+1}: </span>${todotask} </p></div>
+                let html = `
+                    <div><p><span class = 'num-text'>${i+1}: </span> ${todotask} </p> </div>
                     <div><p>${todoDate}</p></div>
-                    <div class="btn-div"><button class = "del-btn" onclick = "todo.splice(${i},1); show_list();">Delete</button></div> `
-                    
+                    <div class="btn-div"><button class = "del-btn js-Delete">Delete</button></div> `
                     
                 todolistHtml += html;
             }
             document.querySelector('.todo-text').innerHTML = todolistHtml;
+            console.log(document.querySelectorAll('.js-Delete'));// IT GIVES ALL THE ELEMENTS WHICH HAVE THE CLASS js-Delete using the same logic we will inject our new buttons with html and css
+            // how did we know it had 2 values (a,index) when we console.log we can see
+
+                document.querySelectorAll('.js-Delete').forEach((deleteButton,index)=>{ 
+                    deleteButton.addEventListener('click',()=>{
+                        todo.splice(index,1);
+                        show_list();
+                    });
+                }) 
+
+                // using for loop
+                // let Delbtns = document.querySelectorAll('.js-Delete') // gives array
+
+                // for(let element = 0;element<Delbtns.length;element++){
+                //     Delbtns[element].addEventListener('click',()=>{
+                //         todo.splice(element,1);
+                //         show_list();
+                //     })
+                // } 
         }
 
         function enter_check(){

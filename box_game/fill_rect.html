@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .can-css{
+            border:4px solid grey ;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <canvas class="can-css"></canvas>
+    <script>
+        let canvas = document.querySelector(".can-css"); 
+        const ctx = canvas.getContext("2d");// used to assign 2d drawing functions
+        ctx.fillRect(10,30,180,100); // x,y (pos) w,h
+        
+    </script>
+</body>
+</html>
